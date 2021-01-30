@@ -23,7 +23,10 @@ def index():
         return render_template('index.html.j2')
     elif request.method == 'POST':
         location = request.form['location']
-        print('Location', location)
+        if location is not None:
+            print('Location', location)
+        else:
+            print("Could not get location")
         return redirect(url_for('register'))
 
 
@@ -34,6 +37,30 @@ def register():
     :return: returns the rendered HTML page
     """
     return render_template('register.html.j2')
+
+
+@app.route('/chat')
+def chat():
+    """
+    GET the chat page
+    """
+    return render_template('chat.html.j2')
+
+
+@app.route('/login')
+def login():
+    """
+    Get the login page.
+    """
+    return render_template('login.html.j2')
+
+
+@app.route('/map')
+def map():
+    """
+    GET the map page.
+    """
+    return render_template('map.html.j2')
 
 
 app.run()
