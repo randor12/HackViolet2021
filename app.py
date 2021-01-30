@@ -55,4 +55,12 @@ def login():
     return render_template('login.html.j2')
 
 
+@app.route('/blog')
+def blog():
+    """
+    Get the blog page.
+    """
+    return render_template('blog.html.j2')
+
+
 app.run()
