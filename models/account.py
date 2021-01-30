@@ -9,23 +9,26 @@ class Account():
         self.em = email
         
     # Adds a search to the search Array
-    def addSearch(search):
-        dataArray.append(search)
+    def addSearch(self, search):
+        self.dataArray.append(search)
     
     # Lists all the searches an account has made
-    def listSearch():
-        for searchData in dataArray:
+    def listSearch(self):
+        for searchData in self.dataArray:
             # Print out the searchData
+            pass
     
     # Lists the last few searches an account has made
-    def getRecents(number):
+    def getRecents(self, number):
         for searchData in range(number):
             # Print out the last "number" searches
+            pass
     
     # Lists the last 3 searches
-    def getRecents():
+    def getRecents(self):
         for searchData in range(3):
             # Print out the last 3 searches
+            pass
             
     
     
