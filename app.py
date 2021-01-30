@@ -23,7 +23,10 @@ def index():
         return render_template('index.html.j2')
     elif request.method == 'POST':
         location = request.form['location']
-        print('Location', location)
+        if location is not None:
+            print('Location', location)
+        else:
+            print("Could not get location")
         return redirect(url_for('register'))
 
 
