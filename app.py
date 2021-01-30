@@ -4,15 +4,6 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 
-@app.route('/hello')
-def hello():
-    """
-    Get Request for "hello"
-    :return: returns 'Hello World'
-    """
-    return 'Hello, World!'
-
-
 @app.route('/', methods=['POST', 'GET'])
 def index():
     """
@@ -53,14 +44,6 @@ def login():
     Get the login page.
     """
     return render_template('login.html.j2')
-
-
-@app.route('/map')
-def map():
-    """
-    GET the map page.
-    """
-    return render_template('map.html.j2')
 
 
 app.run()
