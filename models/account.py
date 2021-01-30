@@ -2,11 +2,14 @@
 Account details
 """
 class Account():
-    def __init__(self, uname, passw, email):
+    def __init__(self, uname, passw, email, fnam, lnam):
         self.posts = {}
         self.user = uname
+        self.fname = fnam
+        self.lname = lnam
         self.password = passw
         self.em = email
+        self.friends = {}
         
     # Adds a search to the search Array
     def addSearch(self, post):
@@ -29,6 +32,10 @@ class Account():
         for searchData in range(3):
             # Print out the last 3 posts
             pass
-            
+        
+    # Lists all friends of account
+    def listFriends(self):
+        for friend in self.friends:
+            pass
     
     
