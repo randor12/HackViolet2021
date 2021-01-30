@@ -19,7 +19,7 @@ def index():
     Get request for the index page.
     :return: returns the rendered HTML page
     """
-    return render_template('index.html')
+    return render_template('index.html.j2')
 
 
 @app.route('/about')
@@ -28,7 +28,7 @@ def about():
     Get request for the about page.
     :return: returns the rendered HTML page
     """
-    return render_template('about.html')
+    return render_template('about.html.j2')
 
 
 app.run()
