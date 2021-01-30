@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 
 app = Flask(__name__)
@@ -13,13 +13,18 @@ def hello():
     return 'Hello, World!'
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
     """
     Get request for the index page.
     :return: returns the rendered HTML page
     """
-    return render_template('index.html.j2')
+    if (request.method == 'GET'):
+        return render_template('index.html.j2')
+    elif request.method == 'POST':
+        location = request.form['location']
+        print('Location', location)
+        return redirect(url_for('register'))
 
 
 @app.route('/register')
