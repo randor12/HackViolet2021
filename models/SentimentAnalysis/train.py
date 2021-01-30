@@ -9,6 +9,10 @@ from nltk import classify
 from nltk import NaiveBayesClassifier
 import pickle
 
+# CITATIONS: Code from:
+# https://www.digitalocean.com/community/tutorials/how-to-perform-sentiment-analysis-in-python-3-using-the-natural-language-toolkit-nltk
+
+
 positive_tweets = twitter_samples.strings('positive_tweets.json')
 negative_tweets = ["fuck you", "shit", "bitch", "dumb ass", "freak",
                    "weirdo", "you suck", "balls", "loser", 'fucker', 'maybe you should have thought of that asshole',
