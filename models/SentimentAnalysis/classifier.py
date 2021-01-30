@@ -5,9 +5,6 @@ from nltk.tokenize import word_tokenize
 import re
 import string
 
-# CITATIONS: Code from:
-# https://www.digitalocean.com/community/tutorials/how-to-perform-sentiment-analysis-in-python-3-using-the-natural-language-toolkit-nltk
-
 
 def remove_noise(tweet_tokens, stop_words=()):
     """
@@ -55,6 +52,11 @@ class SentimentClassifier():
         f.close()
 
     def predict(self, phrase: str) -> str:
+        """
+        Predict if the phrase is positive or negative. This model was found to be about 75% accurate 
+        :param phrase: phrase being predicted on
+        :return: returns Positive if the phrase is predicted as a positive connotation, else Negative
+        """
         token = remove_noise(word_tokenize(phrase))
         predictionVal = self.classifier.classify(
             dict([t, True] for t in token))
