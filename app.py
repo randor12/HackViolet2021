@@ -39,4 +39,28 @@ def register():
     return render_template('register.html.j2')
 
 
+@app.route('/chat')
+def chat():
+    """
+    GET the chat page
+    """
+    return render_template('chat.html.j2')
+
+
+@app.route('/login')
+def login():
+    """
+    Get the login page.
+    """
+    return render_template('login.html.j2')
+
+
+@app.route('/map')
+def map():
+    """
+    GET the map page.
+    """
+    return render_template('map.html.j2')
+
+
 app.run()
