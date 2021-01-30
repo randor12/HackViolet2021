@@ -37,6 +37,7 @@ def register():
         c_pass = request.form['confirmPassword']
         f_name = request.form['fName']
         l_name = request.form['lName']
+        return render_template('index.html.j2')
 
 
 @app.route('/chat')
