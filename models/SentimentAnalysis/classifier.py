@@ -5,6 +5,9 @@ from nltk.tokenize import word_tokenize
 import re
 import string
 
+# CITATIONS: Code from:
+# https://www.digitalocean.com/community/tutorials/how-to-perform-sentiment-analysis-in-python-3-using-the-natural-language-toolkit-nltk
+
 
 def remove_noise(tweet_tokens, stop_words=()):
     """
