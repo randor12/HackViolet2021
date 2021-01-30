@@ -21,13 +21,22 @@ def index():
         return redirect(url_for('register'))
 
 
-@app.route('/register')
+@app.route('/register', methods=['POST', 'GET'])
 def register():
     """
     Get request for the about page.
     :return: returns the rendered HTML page
     """
-    return render_template('register.html.j2')
+    if (request.method == 'GET'):
+        return render_template('register.html.j2')
+    else:
+        # TODO: For ROI
+        email = request.form['email']
+        username = request.form['username']
+        passwd = request.form['password']
+        c_pass = request.form['confirmPassword']
+        f_name = request.form['fName']
+        l_name = request.form['lName']
 
 
 @app.route('/chat')
