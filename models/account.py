@@ -17,25 +17,20 @@ class Account():
     
     # Lists all the posts an account has made
     def listPosts(self):
-        for searchData in self.posts:
-            # Print out the searchData
-            pass
+        return self.posts
     
     # Lists the last few posts an account has made
     def getRecents(self, number):
         for searchData in range(number):
-            # Print out the last "number" posts
-            pass
+            return self.posts[-number, :]
     
     # Lists the last 3 posts
     def getRecents(self):
         for searchData in range(3):
-            # Print out the last 3 posts
-            pass
+            return self.posts[-3, :]
         
     # Lists all friends of account
     def listFriends(self):
-        for friend in self.friends:
-            pass
+        return self.friends
     
     
