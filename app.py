@@ -22,13 +22,13 @@ def index():
     return render_template('index.html.j2')
 
 
-@app.route('/about')
-def about():
+@app.route('/register')
+def register():
     """
     Get request for the about page.
     :return: returns the rendered HTML page
     """
-    return render_template('about.html.j2')
+    return render_template('register.html.j2')
 
 
 app.run()
