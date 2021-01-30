@@ -48,11 +48,14 @@ def chat():
     return render_template('chat.html.j2')
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     """
     Get the login page.
     """
+    if request.method == 'POST':
+        return redirect('blog')
+
     return render_template('login.html.j2')
 
 
