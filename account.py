@@ -2,10 +2,10 @@
 Account details
 """
 class Account():
-    def __init__(self, uname, pass, email):
+    def __init__(self, uname, passw, email):
         self.dataArray = {}
         self.user = uname
-        self.password = pass
+        self.password = passw
         self.em = email
         
     # Adds a search to the search Array
