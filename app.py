@@ -125,9 +125,12 @@ def blog():
     Get the blog page.
     """
 
+    db = models.database.Connector()
+    feedMsgs = db.get_feed_msgs()
+
     if ('user-value' in session.keys()):
 
-        return render_template('blog.html.j2')
+        return render_template('blog.html.j2', msgList=feedMsgs)
     else:
         return render_template('index.html.j2')
 
