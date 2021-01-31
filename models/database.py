@@ -171,9 +171,10 @@ class Connector():
         """
         try:
             self.connect()
-            query = "SELECT * FROM hack_violet_2021.msgs WHERE feed = 1;"
             cursor = self.mydb.cursor()
-            loginInfo = cursor.execute(query).fetchall()
+            query = "SELECT * FROM hack_violet_2021.msgs WHERE feed = 1;"
+            cursor.execute(query)
+            loginInfo = cursor.fetchall()
 
             allMsgs = []
 
@@ -192,7 +193,7 @@ class Connector():
             self.destroy()
             return allMsgs
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return None
 
     def get_recent_msg_id(self):
