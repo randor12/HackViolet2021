@@ -2,6 +2,7 @@ from classifier import SentimentClassifier
 import nltk
 
 nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 
 
 def test_classifer():
