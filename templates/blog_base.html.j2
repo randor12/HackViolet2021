@@ -58,6 +58,11 @@
 </div>
 
 <main class="container">
+
+{% if negativeMessageSent is defined %}
+<h2 style="color:red" class="warning">Messages must be positive when sent</h2>
+{% endif %}
+
   <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Matt Gonley</h1>

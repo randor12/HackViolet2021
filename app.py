@@ -139,15 +139,22 @@ def blog():
         message = request.form['message']
         # return 'You entered: {}'.format(message)
 
-        #TODO adjust the copied lines from register below for blog message
-        #m = db.select_account(email)
+        if (message is None or title is None):
+            return render_template('blog.html.j2')
 
-        # return render_template('blog.html.j2', msgList=feedMsgs)
+        title_sentiment = predict_phrase(title)
+        sentiment = predict_phrase(message)
 
-        userID = db.select_account(session['user-value']).get_id()
+        if (title_sentiment == sentiment and sentiment == 'Positive'):
+            # add message to DB and post to Blog
+            userID = userInfo.get_id()
 
-        values = [userID, title, message, 1, -1]
-        success = db.add_msg(*values)
+            values = [userID, title, message, 1, -1]
+            success = db.add_msg(*values)
+
+        else:
+            # Send Notificatin -> Message must be positive
+            return render_template('blog.html.j2', msgList=feedMsgs, negativeMessageSent=True, accInfo=userInfo)
 
         ## success = db.add_msg(userID, message, 1, -1)
 
@@ -156,5 +163,6 @@ def blog():
             return render_template('blog.html.j2', msgList=feedMsgs, accInfo=userInfo)
         else:
             return render_template('blog.html.j2', msgList=feedMsgs, accInfo=userInfo)
+
 
 app.run()
