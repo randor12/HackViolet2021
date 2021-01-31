@@ -233,8 +233,8 @@ class Connector():
             self.connect()
             cursor = self.mydb.cursor()
             table = 'msgs'
-            values = str(idVal) + ", " str(uID) + ", '" + msg + "', " + \
-                str(feed) + ", " + str(sentID)
+            values = str(idVal) + ", " + str(uID) + ", '" + \
+                str(msg) + "', " + str(feed) + ", " + str(sentID)
             query = 'INSERT INTO %s.%s VALUES(%s);' % (
                 self.default_schema, table, values)
             cursor.execute(query)
