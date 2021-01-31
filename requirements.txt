@@ -3,9 +3,9 @@ flake8==3.8.4
 Flask==1.1.2
 Jinja2==2.10.1
 mysql-connector-python==8.0.23
-nltk==3.5
 numpy==1.18.5
 numpydoc==0.7.0
+nltk==3.5
 pandas==1.1.2
 pycodestyle==2.6.0
 pycparser==2.20
@@ -39,7 +39,6 @@ scikit-learn==0.23.2
 scipy==1.5.2
 simplejson==3.16.0
 sklearn==0.0
-spacy==2.3.5
 sqlparse==0.4.1
 srsly==1.0.5
 tensorboard==2.3.0
