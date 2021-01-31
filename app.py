@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+import models.database
 
 app = Flask(__name__)
 
@@ -37,7 +37,30 @@ def register():
         c_pass = request.form['confirmPassword']
         f_name = request.form['fName']
         l_name = request.form['lName']
-        return render_template('index.html.j2')
+        
+        if (passwd != c_pass):
+            return render_template('register.html.j2', diffPass=True)
+        
+        passwd = passwd.encode('utf8')
+        hashPass, saltVal = models.database.saltHash(passwd)
+        hashPass = hashPass.decode('utf-8')
+        saltVal = saltVal.decode('utf-8')
+        
+        db = models.database.Connector()
+        
+        m = db.select_account(email)
+        
+        if (m is None or m.id != -1):
+            return render_template('register.html.j2', emailExists=True)
+        
+        value = "'%s', '%s', '%s', '%s', '%s', '%s'" % (email, username, hashPass, saltVal, f_name, l_name)
+        
+        success = db.add_account(value)
+        
+        if (success):
+            return render_template('index.html.j2', registerSuccess=True)
+        else:
+            return render_template('register.html.j2', registerFailed=True)
 
 
 @app.route('/chat')

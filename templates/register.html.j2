@@ -3,6 +3,15 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
+
+{% if diffPass is defined %}
+  <h2 style="color: red">Passwords did not match</h2>
+{% endif %}
+
+{% if registerFailed is defined %}
+  <h2 style="color: red">Registration Failed</h2>
+{% endif %}
+
 <form method="post">
   <img class="mb-4" src="{{ url_for('static', filename='images/signup.jpg') }}"
   alt="" width="72" height="57">

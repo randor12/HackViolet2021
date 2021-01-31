@@ -4,6 +4,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import re
 import string
+import os
 
 
 def remove_noise(tweet_tokens, stop_words=()):
@@ -45,7 +46,8 @@ class SentimentClassifier():
         """
         Initialize SentimentClassifier class
         """
-        f = open('classifier.h5', 'rb')
+        path = 'classifier.h5'
+        f = open(path, 'rb')
 
         self.classifier = pickle.load(f)
 

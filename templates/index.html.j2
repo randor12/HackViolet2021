@@ -3,6 +3,9 @@
 {% block title %}Index Page {% endblock %}
 
 {% block content %}
+{% if registerSuccess is defined %}
+	<h2>Successfully Registered</h2>
+{% endif %}
 <h1>Daily Joy!</h1>
 <p class="lead">Welcome to Daily Joy!</p>
 <p class="lead">
