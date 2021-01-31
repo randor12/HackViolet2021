@@ -6,14 +6,17 @@
 
 {% if msgList is defined %}
   {% for item in msgList %}
+  <h3>{{ item.get_title() }}</h3>
   <h2>{{ item.get_message() }}</h2>
   {% endfor %}
 {% endif %}
     <form method="post">
         <div class="form-group">
             <h3 class="mb-0">Submit a message</h3>
-            <label class="mb-0" style="width:50%" for="exampleFormControlTextarea1" \>
-            <textarea type="message" id="message" for="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label class="mb-0" style="width:50%" for="inputTitle" \>
+            <input type="title" name="title" for="title" id="inputTitle" class="form-control" placeholder="Title" required>
+            <label class="mb-0" style="width:50%" for="inputMessage" \>
+            <textarea type="message" name="message" for="message" id="inputMessage" class="form-control" rows="3" placeholder="Message"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

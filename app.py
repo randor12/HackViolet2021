@@ -134,21 +134,26 @@ def blog():
         else:
             return render_template('index.html.j2')
     else:
+        title = request.form['title']
         message = request.form['message']
+        # return 'You entered: {}'.format(message)
 
         #TODO adjust the copied lines from register below for blog message
         #m = db.select_account(email)
 
+        # return render_template('blog.html.j2', msgList=feedMsgs)
+
         userID = db.select_account(session['user-value']).get_id()
 
-        values = [userID, message, 1, -1]
-
+        values = [userID, title, message, 1, -1]
         success = db.add_msg(*values)
+
+        ## success = db.add_msg(userID, message, 1, -1)
 
         if (success):
             feedMsgs = db.get_feed_msgs()
             return render_template('blog.html.j2', msgList=feedMsgs)
         else:
-            return render_template('register.html.j2', msgList=feedMsgs)
+            return render_template('blog.html.j2', msgList=feedMsgs)
 
 app.run()

@@ -183,9 +183,10 @@ class Connector():
                 msgData = MsgInfo()
                 msgData.set_mID(m[0])
                 msgData.set_aID(m[1])
-                msgData.set_message(m[2])
-                msgData.set_feed(m[3])
-                msgData.set_sentID(m[4])
+                msgData.set_title(m[2])
+                msgData.set_message(m[3])
+                msgData.set_feed(m[4])
+                msgData.set_sentID(m[5])
 
                 allMsgs.append(msgData)
 
@@ -201,13 +202,14 @@ class Connector():
             self.connect()
             cursor = self.mydb.cursor()
             query = "SELECT mID FROM hack_violet_2021.msgs order by mID DESC limit 1;"
-            loginInfo = cursor.execute(query).fetchall()
+            cursor.execute(query)
+            loginInfo = cursor.fetchall()
             id = 1
             if loginInfo is None:
                 return 1
 
             for i in loginInfo:
-                id = i
+                id = i[0]
 
             cursor.close()
             self.destroy()
@@ -216,12 +218,14 @@ class Connector():
             print(e.message)
             return None
 
-    def add_msg(self, uID, msg, feed, sentID):
+    def add_msg(self, uID, title, msg, feed, sentID):
         """
         Add a message to the feed
 
         :param uID: user ID of the sender
         :type uID: int
+        :param title: title of the post
+        :type title: str
         :param msg: message sent by the user
         :type msg: str
         :param feed: 0 if sent through DM else 1
@@ -235,7 +239,8 @@ class Connector():
             cursor = self.mydb.cursor()
             table = 'msgs'
             values = str(idVal) + ", " + str(uID) + ", '" + \
-                str(msg) + "', " + str(feed) + ", " + str(sentID)
+                str(title) + "', '" + str(msg) + "', " + str(feed) + \
+                    ", " + str(sentID)
             query = 'INSERT INTO %s.%s VALUES(%s);' % (
                 self.default_schema, table, values)
             cursor.execute(query)

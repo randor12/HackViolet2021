@@ -30,6 +30,7 @@ CREATE TABLE subscribe(
 CREATE TABLE msgs(
   mID int,
   aID int,
+  title varchar(255),
   message varchar(255),
   feed int,
   sentID int

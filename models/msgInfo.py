@@ -4,6 +4,7 @@ class MsgInfo():
     def __init__(self):
         self.mID = -1
         self.aID = -1
+        self.title = ''
         self.message = ''
         self.feed = -1
         self.sentID = -1
@@ -19,6 +20,12 @@ class MsgInfo():
 
     def get_aID(self):
         return self.aID
+
+    def set_title(self, t):
+        self.title = t
+
+    def get_title(self):
+        return self.title
 
     def set_message(self, me):
         self.message = me
