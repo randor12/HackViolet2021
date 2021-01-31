@@ -75,16 +75,6 @@
                                             <span class="time">15/02/2019</span>
                                         </p>
                                     </li>
-                                    <li class="person" data-chat="person1">
-                                        <div class="user">
-                                            <img src="{{ url_for('static', filename='images/defaultpfp.png') }}" alt="Retail Admin">
-                                            <span class="status offline"></span>
-                                        </div>
-                                        <p class="name-time">
-                                            <span class="name">Steve Bangalter</span>
-                                            <span class="time">15/02/2019</span>
-                                        </p>
-                                    </li>
                                     <li class="person active-user" data-chat="person2">
                                         <div class="user">
                                             <img src="{{ url_for('static', filename='images/defaultpfp.png') }}" alt="Retail Admin">
@@ -133,7 +123,7 @@
                                 <span>To: <span class="name">Emily Russell</span></span>
                             </div>
                             <div class="chat-container">
-                                <ul class="chat-box chatContainerScroll">
+                                <ul id="chatting" class="chat-box chatContainerScroll">
                                     <li class="chat-left">
                                         <div class="chat-avatar">
                                             <img src="{{ url_for('static', filename='images/defaultpfp.png') }}" alt="Retail Admin">
@@ -170,36 +160,24 @@
                                             <div class="chat-name">Joyse</div>
                                         </div>
                                     </li>
-                                    <li class="chat-left">
-                                        <div class="chat-avatar">
-                                            <img src="{{ url_for('static', filename='images/defaultpfp.png') }}" alt="Retail Admin">
-                                            <div class="chat-name">Russell</div>
-                                        </div>
-                                        <div class="chat-text">The rest of the team is not here yet.
-                                            <br>Maybe in an hour or so?</div>
-                                        <div class="chat-hour">08:57 <span class="fa fa-check-circle"></span></div>
-                                    </li>
-                                    <li class="chat-right">
-                                        <div class="chat-hour">08:59 <span class="fa fa-check-circle"></span></div>
-                                        <div class="chat-text">Have you faced any problems at the last phase of the project?</div>
-                                        <div class="chat-avatar">
-                                            <img src="{{ url_for('static', filename='images/defaultpfp.png') }}" alt="Retail Admin">
-                                            <div class="chat-name">Jin</div>
-                                        </div>
-                                    </li>
-                                    <li class="chat-left">
-                                        <div class="chat-avatar">
-                                            <img src="{{ url_for('static', filename='images/defaultpfp.png') }}" alt="Retail Admin">
-                                            <div class="chat-name">Russell</div>
-                                        </div>
-                                        <div class="chat-text">Actually everything was fine.
-                                            <br>I'm very excited to show this to our team.</div>
-                                        <div class="chat-hour">07:00 <span class="fa fa-check-circle"></span></div>
-                                    </li>
                                 </ul>
                                 <div class="form-group mt-3 mb-0">
-                                    <textarea class="form-control" rows="3" placeholder="Type your message here..."></textarea>
+                                    <textarea id="entryField" class="form-control" rows="3" placeholder="Type your message here..."></textarea>
+                                    <button type="send" class="btn btn-primary" onclick="send()" >Send</button>
                                 </div>
+
+                                <script>
+                            function send() {
+                                    var txt = document.getElementById("entryField").value
+                                    document.getElementById("entryField").value = ""
+                                    var node =  document.createElement("li");
+                                    var len = document.getElementsByClassName("chat-right")
+                                    var l = len.length
+                                    var item = len[l -1].cloneNode(true)
+                                    item.getElementsByClassName("chat-text")[0].innerText = txt
+                                    document.getElementById("chatting").appendChild(item)
+                            }
+                            </script>
                             </div>
                         </div>
                     </div>
@@ -210,6 +188,8 @@
 
         </div>
         <!-- Row end -->
+
+
 
     </div>
     <!-- Content wrapper end -->
