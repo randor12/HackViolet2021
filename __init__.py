@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import models.database
+from HackViolet2021.models.SentimentAnalysis.classifier import SentimentClassifier
 import os
-from models.SentimentAnalysis.classifier import SentimentClassifier
+import HackViolet2021.models.database
+
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
