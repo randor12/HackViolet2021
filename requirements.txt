@@ -116,8 +116,6 @@ pycrypto==2.6.1
 pycups==1.9.73
 pydocstyle==5.1.1
 pyflakes==2.2.0
-Pygments==2.3.1
-PyGObject==3.36.0
 PyJWT==1.7.1
 pylint==2.6.0
 pymacaroons==0.13.0
@@ -127,7 +125,6 @@ PyQt5==5.14.1
 pyreadline==2.1
 pyRFC3339==1.1
 pyrsistent==0.15.5
-pysvn==1.9.9
 pytest==6.2.2
 python-dateutil==2.7.3
 python-debian===0.1.36ubuntu1
