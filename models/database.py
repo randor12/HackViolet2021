@@ -104,7 +104,7 @@ class Connector():
             self.destroy()
             return id + 1
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return 1
 
     def select_account(self, email):
@@ -162,7 +162,7 @@ class Connector():
             self.destroy()
             return loginInfo
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return None
 
     def get_feed_msgs(self) -> list:
@@ -215,7 +215,7 @@ class Connector():
             self.destroy()
             return id + 1
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return None
 
     def add_msg(self, uID, title, msg, feed, sentID):
@@ -296,7 +296,7 @@ class Connector():
             self.destroy()
             return True
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return False
 
     def most_recent_sub(self):
@@ -310,7 +310,7 @@ class Connector():
             cursor.close()
             return id
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return None
 
     def unsubscribe(self, uID, oID):
@@ -332,7 +332,7 @@ class Connector():
             cursor.close()
             return id
         except Exception as e:
-            print(e.message)
+            print(str(e))
             return None
 
 
