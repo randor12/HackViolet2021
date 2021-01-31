@@ -1,8 +1,13 @@
-# Static FOLDER
-This is where the CSS files and JavaScript Files go.
-They are then able to be included in the "HTML" files through:
+# FLASK TUTORIAL
+This is an example Flask Website
 
-- `<link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}?v=1" />`
-- `<script src="{{ url_for('static', filename='js/site.js') }}?v=1"></script>`
+# Server Side
+The GET, POST, PUT Requests are handled in the `app.py` file.
+This uses Flask to control the routing information each request and
+handles the back end development behind the website as a controller
 
-The version numbers allow the cache to be reset when a file is edited
+# WEB
+
+- The HTML files are placed inside the `templates` folder
+- The CSS and JavaScript files are placed inside the `static` folder
+- Extra Python Files to Help with the back end are placed in the `models` folder
