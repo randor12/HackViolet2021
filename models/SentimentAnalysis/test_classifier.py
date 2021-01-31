@@ -1,4 +1,7 @@
 from classifier import SentimentClassifier
+import nltk
+
+nltk.download('punkt')
 
 
 def test_classifer():
