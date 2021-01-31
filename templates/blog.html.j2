@@ -6,8 +6,20 @@
 
 {% if msgList is defined %}
   {% for item in msgList %}
-  <h3>{{ item.get_title() }}</h3>
-  <h2>{{ item.get_message() }}</h2>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">{{ accInfo.get_fname() }} {{ accInfo.get_lname() }}</strong>
+          <h3 class="mb-0">{{ item.get_title() }}</h3>
+          <div class="mb-1 text-muted">Jan 1 (No Database Date)</div>
+          <p class="mb-auto">{{ item.get_message() }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {# <h3>{{ item.get_title() }}</h3>
+  <h2>{{ item.get_message() }}</h2> #}
   {% endfor %}
 {% endif %}
     <form method="post">
@@ -15,7 +27,7 @@
             <h3 class="mb-0">Submit a message</h3>
             <label class="mb-0" style="width:50%" for="inputTitle" \>
             <input type="title" name="title" for="title" id="inputTitle" class="form-control" placeholder="Title" required>
-            <label class="mb-0" style="width:50%" for="inputMessage" \>
+            <label class="mb-0" style="width:100%" for="inputMessage" \>
             <textarea type="message" name="message" for="message" id="inputMessage" class="form-control" rows="3" placeholder="Message"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

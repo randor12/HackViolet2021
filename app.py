@@ -127,10 +127,11 @@ def blog():
 
     db = models.database.Connector()
     feedMsgs = db.get_feed_msgs()
+    userInfo = db.select_account(session['user-value'])
 
     if (request.method == 'GET'):
         if ('user-value' in session.keys()):
-            return render_template('blog.html.j2', msgList=feedMsgs)
+            return render_template('blog.html.j2', msgList=feedMsgs, accInfo=userInfo)
         else:
             return render_template('index.html.j2')
     else:
@@ -152,8 +153,8 @@ def blog():
 
         if (success):
             feedMsgs = db.get_feed_msgs()
-            return render_template('blog.html.j2', msgList=feedMsgs)
+            return render_template('blog.html.j2', msgList=feedMsgs, accInfo=userInfo)
         else:
-            return render_template('blog.html.j2', msgList=feedMsgs)
+            return render_template('blog.html.j2', msgList=feedMsgs, accInfo=userInfo)
 
 app.run()
