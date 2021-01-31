@@ -4,14 +4,15 @@ import bcrypt
 from dotenv import load_dotenv
 from .loginInfo import LoginInfo
 
+env_path = ".env"
+load_dotenv(env_path)
+
 class Connector():
     def __init__(self):
         """
         Initialize Database Connection and Queries
         """
         self.default_schema = 'hack_violet_2021'
-        env_path = ".env"
-        load_dotenv(env_path)
         # ADD MYSQL DATABASE INFORMATION TO `.env` file
         self.user = os.getenv('USER_DATABASE')
 
@@ -117,14 +118,16 @@ class Connector():
             query = "SELECT * FROM hack_violet_2021.accounts WHERE email LIKE '%s';" % email
             cursor.execute(query)
             loginInfo = cursor.fetchall()
+            print(loginInfo)
             m = LoginInfo()
             for i in loginInfo:
                 # login info
-                print(id[0])
+                
+                print(i)
                 m.set_id(i[0])
                 m.set_email(i[1])
                 m.set_user(i[2])
-                m.set_password(i[3])
+                m.set_pass(i[3])
                 m.set_salt(i[4])
                 m.set_fname(i[5])
                 m.set_lname(i[6])

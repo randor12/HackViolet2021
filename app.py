@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import models.database
+import os
 
 app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -94,17 +96,28 @@ def login():
         if m.get_pass() == hashVal:
             return render_template('login.html.j2', passIncorrect=True)
         
+        session['user-value'] = m.get_email()
         return redirect('blog')
 
     return render_template('login.html.j2')
 
+
+@app.route('/logout')
+def logout():
+    session.pop('user-value', None)
+    return render_template('index.html.j2')
 
 @app.route('/blog')
 def blog():
     """
     Get the blog page.
     """
-    return render_template('blog.html.j2')
+    
+    if ('user-value' in session.keys()):
+    
+        return render_template('blog.html.j2')
+    else:
+        return render_template('index.html.j2')
 
 
 app.run()
