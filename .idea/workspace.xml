@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc87cfc0-9b53-4f7f-bd1f-9ed9adeee5f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HackViolet2021.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HackViolet2021.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/chat_base.html.j2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat_base.html.j2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +88,7 @@
       <workItem from="1612030033188" duration="71000" />
       <workItem from="1612030152722" duration="943000" />
       <workItem from="1612040175771" duration="3839000" />
+      <workItem from="1612103932845" duration="226000" />
     </task>
     <servers />
   </component>
@@ -110,6 +110,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HackViolet2021$getList.coverage" NAME="getList Coverage Results" MODIFIED="1612029695050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HackViolet2021$HackViolet2021.coverage" NAME="HackViolet2021 Coverage Results" MODIFIED="1612059607681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/HackViolet2021$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1612100237292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/HackViolet2021$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1612104156341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
