@@ -59,7 +59,6 @@ Keras==2.4.3
 Keras-Preprocessing==1.1.2
 keyring==18.0.1
 keyrings.alt==3.4.0
-kiwisolver==1.2.0
 launchpadlib==1.10.13
 lazr.restfulclient==0.14.2
 lazr.uri==1.0.3
