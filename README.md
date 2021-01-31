@@ -24,7 +24,8 @@ only looks for the positives.
 
 # REQUIREMENTS
 
-Must have Python 3 installed on computer and pip or anaconda
+- Must have Python 3 installed on computer and pip or anaconda
+- Must have MySQL
 
 # HOW TO RUN LOCALLY
 
@@ -36,9 +37,20 @@ Must have Python 3 installed on computer and pip or anaconda
 - `$ pip install -r requirements.txt`
 4. Run test
 - `$ pytest`
-5. Run the application
+5. Set up .env file
+- `$ touch .env`
+- `$ nano .env`
+6. Add the following into the file 
+`
+USER_DATABASE='mysql-username-here'
+PASS_DATABASE='mysql-password-here'
+SECRET_KEY='S3CRETalsjdfklj'
+`
+7. Set up the tables with the script in createTable.sql
+
+8. Run the application
 - `$ python app.py`
-6. Go to your web browser and type in the URL: `http://localhost:5000`
+9. Go to your web browser and type in the URL: `http://localhost:5000`
 
 # Server Side
 The GET, POST, PUT Requests are handled in the `app.py` file.
