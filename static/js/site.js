@@ -2,7 +2,7 @@
  * Site JavaScript Here
  */
 
-console.log("Hello, World!");
+// console.log("Hello, World!");
 
 function send() {
         var txt = document.getElementById("entryField").value
