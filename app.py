@@ -119,7 +119,7 @@ def logout():
     return render_template('index.html.j2')
 
 
-@app.route('/blog')
+@app.route('/blog', methods=['POST', 'GET'])
 def blog():
     """
     Get the blog page.
@@ -128,11 +128,27 @@ def blog():
     db = models.database.Connector()
     feedMsgs = db.get_feed_msgs()
 
-    if ('user-value' in session.keys()):
-
-        return render_template('blog.html.j2', msgList=feedMsgs)
+    if (request.method == 'GET'):
+        if ('user-value' in session.keys()):
+            return render_template('blog.html.j2', msgList=feedMsgs)
+        else:
+            return render_template('index.html.j2')
     else:
-        return render_template('index.html.j2')
+        message = request.form['message']
 
+        #TODO adjust the copied lines from register below for blog message
+        #m = db.select_account(email)
+
+        userID = db.select_account(session['user-value']).get_id()
+
+        values = [userID, message, 1, -1]
+
+        success = db.add_msg(*values)
+
+        if (success):
+            feedMsgs = db.get_feed_msgs()
+            return render_template('blog.html.j2', msgList=feedMsgs)
+        else:
+            return render_template('register.html.j2', msgList=feedMsgs)
 
 app.run()
