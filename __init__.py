@@ -165,4 +165,5 @@ def blog():
             return render_template('blog.html.j2', msgList=feedMsgs, accInfo=userInfo)
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
