@@ -113,7 +113,6 @@ pycairo==1.16.2
 pycodestyle==2.6.0
 pycparser==2.20
 pycrypto==2.6.1
-pycups==1.9.73
 pydocstyle==5.1.1
 pyflakes==2.2.0
 PyJWT==1.7.1
