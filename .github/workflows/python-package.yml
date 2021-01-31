@@ -26,9 +26,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest ntlk==3.5
-        python installNLTK.py
+        python -m pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Install NTLK Downloads
+      run: |
+        python installNTLK.py
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
