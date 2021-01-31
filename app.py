@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import models.database
 
 app = Flask(__name__)
@@ -77,6 +77,23 @@ def login():
     Get the login page.
     """
     if request.method == 'POST':
+        email = request.form['email']
+        passwd = request.form['password']
+        
+        db = models.database.Connector()
+        m = db.select_account(email)
+        
+        if (m is None or m.id == -1):
+            return render_template('login.html.j2', emailIncorrect=True)
+        
+        passwd = passwd.encode('utf-8')
+        hashVal, slt = models.database.saltHash(passwd)
+        
+        hashVal = hashVal.decode('utf-8')
+        
+        if m.get_pass() == hashVal:
+            return render_template('login.html.j2', passIncorrect=True)
+        
         return redirect('blog')
 
     return render_template('login.html.j2')
