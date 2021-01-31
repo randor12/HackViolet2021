@@ -23,8 +23,5 @@ function send() {
 }
 
 function slll(elem) {
-    const sleep = promisify(setTimeout)
-    sleep(5000).then(() => {
         document.getElementById("chatting").appendChild(elem)
-        });
 }
